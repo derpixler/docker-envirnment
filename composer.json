@@ -1,0 +1,38 @@
+{
+    "name": "docker/wordpress",
+    "description": "Build the ",
+    "license": "GPL-3.0+",
+    "type": "wordpress",
+    "homepage": "http://web-dev-medai.de",
+    "authors": [
+        {
+            "name": "web dev media UG",
+            "homepage": "http://wb-dev-media.de",
+            "email": "info@web-dev-media.de",
+            "role": "Developer, author"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=7",
+        "composer/installers": "~1.0",
+    },
+    "extra": {
+        "installer-paths": {
+            "html/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "html/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "rm -rf wp_data/wp-config.php",
+            "rm -rf wp_data/",
+            "docker-compose stop"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    app:
+        volumes:
+            - nfsmount:/var/www/app
+    nginx:
+        volumes:
+            - nfsmount:/var/www/app
+
+volumes:
+    nfsmount:
+        driver: local
+        driver_opts:
+            type: nfs
+            o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+            device: ":/System/Volumes/Data${PWD}"
