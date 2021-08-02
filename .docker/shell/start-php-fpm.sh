@@ -11,4 +11,4 @@ echo "Starting xdebug php-fpm"
 sudo chmod +x /etc/init.d/php-fpm-xdebug
 sudo service php-fpm-xdebug start
 
-/bin/bash #docker-entrypoint.sh # to keep running
+/bin/bash docker-entrypoint.sh # to keep running

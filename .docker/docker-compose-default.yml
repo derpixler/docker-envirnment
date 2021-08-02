@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-    wordpress:
+    app:
         volumes:
-            - .:/var/www/wordpress
+            - .:/var/www/app
     nginx:
         volumes:
-            - .:/var/www/wordpress
+            - .:/var/www/app
