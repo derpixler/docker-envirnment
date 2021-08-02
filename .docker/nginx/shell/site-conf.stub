@@ -26,8 +26,8 @@ server {
 
     index                      index index.html index.htm index.php;
 
-    access_log                 /var/log/nginx/ssl-app.access.log;
-    error_log                  /var/log/nginx/ssl-app.error.log;
+    #access_log                 /var/log/nginx/ssl-app.access.log;
+    #error_log                  /var/log/nginx/ssl-app.error.log;
 
     root                        /var/www/app/public;
 

@@ -120,4 +120,5 @@ COPY php/init.d/php-fpm-xdebug /etc/init.d/php-fpm-xdebug
 COPY shell/start-php-fpm.sh /usr/bin/start-php-fpm.sh
 RUN chmod +x /usr/bin/start-php-fpm.sh
 
-RUN /usr/bin/start-php-fpm.sh
+
+CMD [ "/usr/bin/start-php-fpm.sh" ]
