@@ -1,2 +1,10 @@
 .DS*
 .ide*
+/debug.log
+/vendor/
+/public/
+/public/
+/.docker/shell/init-wordpress.sh
+/public/
+/public/wp-config.php
+/composer.lock
