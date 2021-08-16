@@ -20,19 +20,17 @@
     ],
     "require": {
         "php": ">=7",
-        "composer/installers": "~1.0",
+        "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
+        "johnpbloch/wordpress-core": "dev-master"
     },
     "extra": {
+        "wordpress-install-dir": "public",
         "installer-paths": {
             "html/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
             "html/wp-content/themes/{$name}/": ["type:wordpress-theme"]
         }
     },
     "scripts": {
-        "pre-install-cmd": [
-            "rm -rf wp_data/wp-config.php",
-            "rm -rf wp_data/",
-            "docker-compose stop"
-        ]
+        "pre-install-cmd": []
     }
 }

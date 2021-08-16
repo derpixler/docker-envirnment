@@ -30,6 +30,17 @@ services:
       XDEBUG_CONFIG: 'idekey=PHPSTORM'
       XDEBUG_REMOTE_HOST: ${XDEBUG_HOST}
       NODE_ENV: development
+      WORDPRESS_DB_HOST: "${WORDPRESS_CONTAINER}_db"
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+      WORDPRESS_DEBUG: 'false'
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'DOCKER_ENV', true );
+        define( 'WP_HOME', 'http://${HOSTS}' );
+        define( 'WP_DEBUG_LOG', dirname( dirname( __FILE__ ) ) . '/debug.log' );
+        define( 'RELOCATE', true );
 
   nginx:
     build:
@@ -70,8 +81,11 @@ services:
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    networks:
+        - app_network
     volumes:
-      - ./assets/mysql/dump:/docker-entrypoint-initdb.d
+      - ./mysql/dump:/docker-entrypoint-initdb.d
+      - ./mysql/data:/var/lib/mysql
 
   mailhog:
     image: mailhog/mailhog
