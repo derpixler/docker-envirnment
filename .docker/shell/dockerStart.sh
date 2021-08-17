@@ -4,9 +4,6 @@ SYSTEM_UNAME="$(uname -s)"
 FILE_PATH=$(dirname "$0")
 cp -f .env .docker/.env
 
-bash ./.docker/shell/init-wordpress.sh
-exit
-
 ask_for_rebuild() {
   echo -n "Do you wish to rebuild the containers? [yn] - [n]:"
   read -n 1 decision
