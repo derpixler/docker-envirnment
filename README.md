@@ -5,7 +5,7 @@ you are searching for a ready to use -WordPress Docker environment- which you ha
 * **
 
 ### How do I get set up? ###
-*
+* run start command $ ./.docker/shell/dockerStart.sh
 
 
 ### Allow NET::ERR_CERT_INVALID chrome 
