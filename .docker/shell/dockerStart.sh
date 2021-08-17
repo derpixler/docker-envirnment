@@ -23,6 +23,14 @@ if [[ -f "$COMPOSER_OVERRIDE" ]]; then
 fi
 
 if [[ "$SYSTEM_UNAME" == "Darwin" ]]; then
+
+  PWD=$(pwd)
+  EXPORTS=$(grep "$PWD " /etc/exports)
+  if [ -z "$EXPORTS" ]; then
+    echo "clear /etc/exports"
+    sudo dd if=/dev/null of=/etc/exports
+  fi
+
   # Do something under Mac OS X platform
   # Import env file exports
   if [[ -f "$FILE_PATH/../.env" ]]; then
