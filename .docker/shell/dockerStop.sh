@@ -48,5 +48,4 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" -o "$(expr substr $(uname -s)
   fi
 
   docker-compose -f .docker/docker-compose.yml -f .docker/docker-compose-default.yml down --remove-orphans --volumes
-
 fi
