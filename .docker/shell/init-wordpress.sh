@@ -8,6 +8,10 @@ WORDPRESS_PLUGIN_HELLO='public/wp-content/plugins/hello.php'
 WORDPRESS_THEME_TWENTYTWENTYONE='twentytwentyone'
 WORDPRESS_THEMES_PATH='public/wp-content/themes'
 
+if [[ ! -d 'vendor' ]]; then
+  composer install
+fi
+
 if [[ -f $WORDPRESS_CONFIG_SAMPLE ]]; then
   rm $WORDPRESS_CONFIG_SAMPLE
   rm $WORDPRESS_PLUGIN_HELLO
