@@ -3,6 +3,9 @@ DOCKER_REBUILD=()
 SYSTEM_UNAME="$(uname -s)"
 FILE_PATH=$(dirname "$0")
 
+bash ./.docker/shell/init-wordpress.sh
+exit
+
 ask_for_rebuild() {
   echo -n "Do you wish to rebuild the containers? [yn] - [n]:"
   read -n 1 decision
@@ -112,6 +115,8 @@ elif [[ "$(expr substr $SYSTEM_UNAME 1 5)" == "Linux" ]] || [[ "$(expr substr $S
   docker-compose -f .docker/docker-compose.yml -f .docker/docker-compose-default.yml "${DOCKER_OVERRIDE_COMMAND[@]}" up --remove-orphans --detach "${DOCKER_REBUILD[@]}"
 
 fi
+
+bash ./.docker/shell/init-wordpress.sh
 
 echo "Init Project Finished"
 
