@@ -2,6 +2,7 @@
 DOCKER_REBUILD=()
 SYSTEM_UNAME="$(uname -s)"
 FILE_PATH=$(dirname "$0")
+cp -f .env .docker/.env
 
 bash ./.docker/shell/init-wordpress.sh
 exit
